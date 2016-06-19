@@ -1,4 +1,4 @@
-package me.juancrg90.android.twitterclient.images;
+package me.juancrg90.android.twitterclient.images.ui;
 
 
 import android.os.Bundle;
