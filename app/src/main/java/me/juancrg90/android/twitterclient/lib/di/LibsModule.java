@@ -1,4 +1,4 @@
-package me.juancrg90.android.twitterclient.di;
+package me.juancrg90.android.twitterclient.lib.di;
 
 import android.support.v4.app.Fragment;
 

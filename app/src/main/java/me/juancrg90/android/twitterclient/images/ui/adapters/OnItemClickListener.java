@@ -1,4 +1,4 @@
-package me.juancrg90.android.twitterclient.images.adapters;
+package me.juancrg90.android.twitterclient.images.ui.adapters;
 
 import me.juancrg90.android.twitterclient.entities.Image;
 

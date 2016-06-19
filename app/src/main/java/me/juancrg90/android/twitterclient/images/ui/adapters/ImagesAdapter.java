@@ -1,7 +1,6 @@
-package me.juancrg90.android.twitterclient.images.adapters;
+package me.juancrg90.android.twitterclient.images.ui.adapters;
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.RecyclerView.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

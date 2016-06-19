@@ -20,8 +20,8 @@ import butterknife.ButterKnife;
 import me.juancrg90.android.twitterclient.R;
 import me.juancrg90.android.twitterclient.entities.Image;
 import me.juancrg90.android.twitterclient.images.ImagesPresenter;
-import me.juancrg90.android.twitterclient.images.adapters.ImagesAdapter;
-import me.juancrg90.android.twitterclient.images.adapters.OnItemClickListener;
+import me.juancrg90.android.twitterclient.images.ui.adapters.ImagesAdapter;
+import me.juancrg90.android.twitterclient.images.ui.adapters.OnItemClickListener;
 
 /**
  * A simple {@link Fragment} subclass.
