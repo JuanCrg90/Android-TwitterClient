@@ -3,6 +3,7 @@ package me.juancrg90.android.twitterclient.main.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +16,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.juancrg90.android.twitterclient.LoginActivity;
 import me.juancrg90.android.twitterclient.R;
+import me.juancrg90.android.twitterclient.hashtags.HashtagsFragment;
+import me.juancrg90.android.twitterclient.images.ImagesFragment;
+import me.juancrg90.android.twitterclient.main.ui.adapters.ManSectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     @Bind(R.id.tabs)
     TabLayout tabs;
     @Bind(R.id.container)
-    ViewPager container;
+    ViewPager viewpager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
+        setupAdapter();
+    }
+
+    private void setupAdapter() {
+        Fragment[] fragments = new Fragment[]{new ImagesFragment(), new HashtagsFragment()};
+        String[] titles = new String[]{getString(R.string.main_header_images), getString(R.string.main_header_hastags)};
+        ManSectionsPagerAdapter adapter =
+                new ManSectionsPagerAdapter(getSupportFragmentManager(),
+                                            titles,fragments);
+
+        viewpager.setAdapter(adapter);
+
+        tabs.setupWithViewPager(viewpager);
     }
 
     @Override
