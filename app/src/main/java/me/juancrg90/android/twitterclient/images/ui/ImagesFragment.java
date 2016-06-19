@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,11 +16,15 @@ import android.widget.ProgressBar;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.juancrg90.android.twitterclient.R;
+import me.juancrg90.android.twitterclient.TwitterClientApp;
 import me.juancrg90.android.twitterclient.entities.Image;
 import me.juancrg90.android.twitterclient.images.ImagesPresenter;
+import me.juancrg90.android.twitterclient.images.di.ImagesComponent;
 import me.juancrg90.android.twitterclient.images.ui.adapters.ImagesAdapter;
 import me.juancrg90.android.twitterclient.images.ui.adapters.OnItemClickListener;
 
@@ -33,11 +38,13 @@ public class ImagesFragment extends Fragment implements ImagesView, OnItemClickL
     ProgressBar progressBar;
     @Bind(R.id.recyclerView)
     RecyclerView recyclerView;
-
-    ImagesAdapter adapter;
-    ImagesPresenter presenter;
     @Bind(R.id.container)
     FrameLayout container;
+
+    @Inject
+    ImagesAdapter adapter;
+    @Inject
+    ImagesPresenter presenter;
 
     public ImagesFragment() {
     }
@@ -49,7 +56,26 @@ public class ImagesFragment extends Fragment implements ImagesView, OnItemClickL
         View view = inflater.inflate(R.layout.fragment_content, container, false);
 
         ButterKnife.bind(this, view);
+        setupInjection();
+        setupRecyclerView();
+        presenter.getImageTweets();
         return view;
+    }
+
+    private void setupRecyclerView() {
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void setupInjection() {
+        TwitterClientApp app = (TwitterClientApp) getActivity().getApplication();
+        ImagesComponent imagesComponent = app.getImagesComponent(this, this, this);
+        
+        // Option 1 DI
+        //presenter = imagesComponent.getPresenter();
+
+        // Option 2 DI
+        imagesComponent.inject(this);
     }
 
     @Override

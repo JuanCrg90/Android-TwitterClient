@@ -44,7 +44,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ViewHolder
     }
 
     public void setItems(List<Image> newItems) {
-        newItems.addAll(newItems);
+        dataset.addAll(newItems);
         notifyDataSetChanged();
     }
 
@@ -63,7 +63,7 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.ViewHolder
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this.itemView);
+            ButterKnife.bind(this, itemView);
             this.view = itemView;
         }
 
