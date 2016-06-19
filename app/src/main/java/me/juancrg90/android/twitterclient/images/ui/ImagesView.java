@@ -8,8 +8,8 @@ import me.juancrg90.android.twitterclient.entities.Image;
  * Created by juancrg90.
  */
 public interface ImagesView {
-    void showElements();
-    void hideElements();
+    void showImages();
+    void hideImages();
     void showProgress();
     void hideProgress();
 
