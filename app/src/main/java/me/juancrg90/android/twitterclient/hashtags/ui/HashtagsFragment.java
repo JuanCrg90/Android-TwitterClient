@@ -1,4 +1,4 @@
-package me.juancrg90.android.twitterclient.hashtags;
+package me.juancrg90.android.twitterclient.hashtags.ui;
 
 
 import android.os.Bundle;

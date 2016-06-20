@@ -16,7 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.juancrg90.android.twitterclient.LoginActivity;
 import me.juancrg90.android.twitterclient.R;
-import me.juancrg90.android.twitterclient.hashtags.HashtagsFragment;
+import me.juancrg90.android.twitterclient.hashtags.ui.HashtagsFragment;
 import me.juancrg90.android.twitterclient.images.ui.ImagesFragment;
 import me.juancrg90.android.twitterclient.main.ui.adapters.ManSectionsPagerAdapter;
 
