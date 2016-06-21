@@ -32,7 +32,6 @@ public class HastagListAdapter  extends RecyclerView.Adapter<HastagListAdapter.V
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.txtHashtag.setText(items.get(position));
-
     }
 
     @Override

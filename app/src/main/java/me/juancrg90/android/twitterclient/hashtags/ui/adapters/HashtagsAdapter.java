@@ -14,6 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import me.juancrg90.android.twitterclient.R;
 import me.juancrg90.android.twitterclient.entities.Hashtag;
+import me.juancrg90.android.twitterclient.hashtags.ui.CustomGridLayoutManager;
 
 /**
  * Created by juancrg90.
@@ -30,7 +31,7 @@ public class HashtagsAdapter extends RecyclerView.Adapter<HashtagsAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_images, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_hastags, parent, false);
         return new ViewHolder(view, parent.getContext());
     }
 
@@ -83,12 +84,12 @@ public class HashtagsAdapter extends RecyclerView.Adapter<HashtagsAdapter.ViewHo
             adapter.notifyDataSetChanged();
         }
 
-        public void setOnClickListener(final Hashtag image, final OnItemClickListener listener) {
+        public void setOnClickListener(final Hashtag tweet, final OnItemClickListener listener) {
             view.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View view) {
-                    listener.onItemClick(image);
+                    listener.onItemClick(tweet);
                 }
             });
         }

@@ -28,7 +28,7 @@ public class HashtagsRepositoryImpl implements HashtagsRepository {
         this.eventBus = eventBus;
         this.client = client;
     }
-    
+
     @Override
     public void getHashtags() {
 
